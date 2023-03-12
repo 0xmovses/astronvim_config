@@ -1,12 +1,42 @@
 return {
-  -- You can also add new plugins here as well:
-  -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
+  {
+    "EdenEast/nightfox.nvim",
+    as = "nightfox",
+  },
+  {
+    "catppuccin/nvim",
+    as = "catppuccin"
+  },
+  {
+    "luisiacc/gruvbox-baby",
+    as = "gruvbox-baby",
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          auto_refresh = false,
+          keymap = {
+            accept = "<C-e>",
+            jump_prev = "[[",
+            jump_next = "]]",
+            refresh = "gr",
+            open = "<M-CR>",
+          },
+        },
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-e>",
+            prev = "<M-[>",
+            next = "<M-]>",
+            dismiss = "<C-]>",
+          },
+        },
+      })
+    end,
+  },
 }
