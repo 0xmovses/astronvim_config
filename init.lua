@@ -44,6 +44,10 @@ return {
       --   return true
       -- end
     },
+    -- add custom handler
+    {
+      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
+    },
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"

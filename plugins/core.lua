@@ -20,6 +20,13 @@ return {
       return opts
     end,
   },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts)
+      opts.tabline = nil   -- remove tabline
+      return opts
+    end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
