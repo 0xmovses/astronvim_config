@@ -17,12 +17,12 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "gruvbox-baby",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
+  colorscheme = "gruvbox-baby",
   lsp = {
     -- customize lsp formatting options
     formatting = {
@@ -45,9 +45,9 @@ return {
       -- end
     },
     -- add custom handler
-    {
-      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
-    },
+    -- {
+    --   rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
+    -- },
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
