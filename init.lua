@@ -22,7 +22,7 @@ return {
     virtual_text = true,
     underline = true,
   },
-  colorscheme = "gruvbox-baby",
+  colorscheme = "mellifluous",
   lsp = {
     -- customize lsp formatting options
     formatting = {
