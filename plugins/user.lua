@@ -134,51 +134,7 @@ return {
       }
     end,
   },
-  {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      require("rust-tools").setup({
-        tools = {
-          autoSetHints = true,
-          hover_with_actions = true,
-          inlay_hints = {
-            auto = true,
-            show_parameter_hints = true,
-            parameter_hints_prefix = "<- ",
-            other_hints_prefix = "=> ",
-          },
-          check_on_save = {
-            command = "clippy",
-          },
-          runnables = {
-            use_telescope = true,
-          },
-          debuggables = {
-            use_telescope = true,
-          },
-          hover_actions = {
-            border = {
-              { "╭", "FloatBorder" },
-              { "─", "FloatBorder" },
-              { "╮", "FloatBorder" },
-              { "│", "FloatBorder" },
-              { "╯", "FloatBorder" },
-              { "─", "FloatBorder" },
-              { "╰", "FloatBorder" },
-              { "│", "FloatBorder" },
-            },
-          },
-        },
-        server = {
-          on_attach = require("lsp").common_on_attach,
-          capabilities = require("lsp").common_capabilities,
-        },
-      })
-    end,
-  },
-  {
+    {
     "mrjones2014/nvim-ts-rainbow"
   }
-
-
 }
