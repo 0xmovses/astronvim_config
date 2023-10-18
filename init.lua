@@ -31,15 +31,43 @@ return {
             cargo = {
               extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev', },
               extraArgs = { "--profile", "rust-analyzer", },
+              features = { "runtime-benchmarks", "try-runtime" }
+            },
+            diagnostics = {
+              disabled = { "unresolved-imports", "unresolved-proc-macro" },
+            },
+            rustfmt = {
+              extraArgs = { "+nightly" },
+            },
+            server = {
+                extraEnv = {
+                  CARGO_TARGET_DIR = "target/.rust-analyzer",
+		              -- Don't lint the runtime.
+		              SKIP_WASM_BUILD = 1,
+		              CHALK_OVERFLOW_DEPTH = "3000",
+		              CHALK_SOLVER_MAX_SIZE = "1500"
+              }
+            },
+            runnables = {
+              "--target-dir",
+              "target/.rust-analyzer",
+            },
+            check = {
+              extraArgs = { "--target-dir", "target/.rust-analyzer" },
+              overrideCommand = {
+                "cargo",
+		            "check",
+		            "--quiet",
+		            "--message-format=json",
+		            "--target-dir",
+		            "target/.rust-analyzer"
+		          },
             },
           },
         },
       },
     },
-    setup_handlers = {
-      -- add custom handler
-      -- rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
-    },
+    setup_handlers = {},
     servers = { "rust_analyzer" }
   },
   -- Configure require("lazy").setup() options
